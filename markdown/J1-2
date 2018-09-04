@@ -1,0 +1,53 @@
+# 计算机网络技术考核题库
+---
+> [TOC]
+## 专业基本技能模块一
+
+### J1-1
+
+#### 任务一
+
+1. 拖拽设备，搭建网络
+2. 相同直连，不同交叉，虚线为交叉线
+3. 连接链路
+
+#### 任务二
+
+1. 使用`hostname 名字`设置设备名称
+2. 使用`line vty 0 5`配置虚拟接口
+  * `password 密码`设置密码
+  * `login`使配置生效
+
+#### 任务三
+
+1. 使用`vlan 数字` `exit`新建VLAN
+2. 使用`int range f0/0-5`同时配置多个端口
+  * `switchport mode access`将端口设置为access口
+  * `switchport access vlan 10`将端口加入vlan10中
+  * `no shutdown`启用端口
+3. `int range f0/1-4`进入端口
+  * `switchport trunk enq dot1q`三层交换机需要使用dot1q协议
+  * `switchport mode trunk`切换为trunk口
+  * `switchport trunk a vlan all`允许所有vlan通过
+4. *同3*
+
+#### 任务四
+
+1. `spanning-tree mode rapid-pvst`启动快速生成树协议
+  * `spanning-tree vlan 10,20,30,40 root primary`设置当前设备为生成树根
+  * `spanning-tree vlan 10,20,30,40 root secondary`设置设备为生成树备份
+
+#### 任务五
+
+1. 先将端口切换为trunk口
+  * `channel-group 1 mode on`设置链路捆绑,两边都需要设置
+
+#### 任务六
+
+1. `int vlan 10` `ip add 192.168.1.1 255.255.255.0`为相应vlan添加ip地址
+2. `service dhcp`开启dhcp服务
+  * `ip dhcp pool 名称`创建地址池
+  * `network 172.16.10.0 255.255.255.0`网段
+  * `default-router 172.16.10.254`默认网关
+  * `ip dhcp ex...-add 开始 结束`排除地址
+
